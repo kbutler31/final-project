@@ -1,82 +1,52 @@
 
 
-import React from 'react'
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
-import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import Container from 'react-bootstrap/Container'
-import Home from './Components/Home.js'
-import About from './Components/About.js'
-import Post from './Components/post.js'
+import React from 'react';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Container from 'react-bootstrap/Container';
+import Home from './Components/Home.js';
+import About from './Components/About.js';
+import FlightList from './components/FlightList';
+import AddFlight from './components/AddFlight';
 
-export default function App() {
-
-  const MOCK_API_URL = 'https://669e5db39a1bda3680066576.mockapi.io/posts';
-
-  const [users, setUsers] = useState([{}])
-
-const [newUserName, setNewUserName] = useState('')
-const [newUserAddress, setNewUserAddress] = useState('')
-const [newUserPosition, setNewUserPosition] = useState('')
-
-const [updatedName, setUpdatedName] = useState('')
-const [updatedAddress, setUpdatedAddress] = useState('')
-const [updatedPosition, setUpdatedPosition] = useState('')
-
-function getUsers() {
-  fetch(MOCK_API_URL)
-    .then(res => res.json())
-    .then(data => setUsers(data))
-    .catch(error => console.log(error))
-}
+const [flights, setFlights] = useState([]);
 
 useEffect(() => {
-  getUsers()
-}, [])
+  const fetchFlights = async () => {
+    const res = await axios.get('http://localhost:5000/flights');
+    setFlights(res.data);
+  };
+  fetchFlights();
+}, []);
 
-function deleteUser(id) {
-  fetch(`${MOCK_API_URL}/${id}`, {
-    method: 'DELETE'
-  })
-    .then(() => getUsers())
-    .catch(error => console.log(error))
-}
-function updateUser(id) {
-  fetch(`${MOCK_API_URL}/${id}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: updatedName,
-      address: updatedAddress,
-      position: updatedPosition
-    })
-  })
-    .then(() => getUsers())
-    .catch(error => console.log(error))
-}
+<FlightList flights={flights} />
 
-function postNewUser() {
-  fetch(MOCK_API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: newUserName,
-      address: newUserAddress,
-      position: newUserPosition
-    })
-  })
-    .then(() => getUsers())
-    .catch(error => console.log(error))
-}
+const FlightList = ({ flights }) => (
+  <div>
+    <h2>Flight List</h2>
+    <ul>
+      {flights.map(flight => (
+        <li key={flight.id}>
+          {flight.flightNumber} - {flight.departure} to {flight.destination}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+ const App = () => {
+      return (
+      <div className="App">
+        <h1>Flight CRUD App</h1>
+        <AddFlight />
+        <FlightList />
+      </div>
+    );
+  };
 
 
-  return (
     <Container>
     <Router>
       
@@ -89,7 +59,7 @@ function postNewUser() {
         <Link to="/about">About</Link>
         </Button>
         <Button variant='outline-secondary'>
-        <Link to="/post">Post</Link>
+        <Link to="/Flights">Flights</Link>
         </Button>
       </ButtonGroup>
         
@@ -100,7 +70,7 @@ function postNewUser() {
             <About />
           </Route>
 
-          <Route path="/post">
+          <Route path="/flights">
             <post />
           </Route>
 
@@ -111,5 +81,5 @@ function postNewUser() {
       </div>
     </Router>
     </Container>
-  )
-}
+  
+export default App;

@@ -1,0 +1,104 @@
+{
+"flights":[
+    {
+      "passenger": "Lin Ólafsson",
+      "airline": "Air Europa",
+      "flightNumber": "UX2734",
+      "origin": {
+        "name": "Rio de Janeiro–Galeão International Airport",
+        "code": "GIG",
+        "city": "Rio De Janeiro",
+        "country": "Brazil"
+      },
+      "destination": {
+        "name": "Alice Springs Airport",
+        "code": "ASP",
+        "city": "Alice Springs",
+        "country": "Australia"
+      },
+      "date": "2025-03-12T23:14:40.739Z",
+      "seat": "25C",
+      "flightLength": 2
+    },
+    {
+      "passenger": "Thomas Dube",
+      "airline": "Air Dolomiti",
+      "flightNumber": "93138",
+      "origin": {
+        "name": "Düsseldorf International Airport",
+        "code": "DUS",
+        "city": "Duesseldorf",
+        "country": "Germany"
+      },
+      "destination": {
+        "name": "Santos Dumont Airport",
+        "code": "SDU",
+        "city": "Rio De Janeiro",
+        "country": "Brazil"
+      },
+      "date": "2024-08-30T22:35:49.194Z",
+      "seat": "9F",
+      "flightLength": 5.25
+    },
+    {
+      "passenger": "Joanna Okeke",
+      "airline": "Malaysia Airlines",
+      "flightNumber": "14766",
+      "origin": {
+        "name": "Cancún International Airport",
+        "code": "CUN",
+        "city": "Cancun",
+        "country": "Mexico"
+      },
+      "destination": {
+        "name": "Cancún International Airport",
+        "code": "CUN",
+        "city": "Cancun",
+        "country": "Mexico"
+      },
+      "date": "2025-02-23T20:00:52.278Z",
+      "seat": "4A",
+      "flightLength": 2.75
+    },
+    {
+      "passenger": "Janusz Novák",
+      "airline": "Wizzair",
+      "flightNumber": "49978",
+      "origin": {
+        "name": "Vienna International Airport",
+        "code": "VIE",
+        "city": "Vienna",
+        "country": "Austria"
+      },
+      "destination": {
+        "name": "Don Mueang International Airport",
+        "code": "DMK",
+        "city": "Bangkok",
+        "country": "Thailand"
+      },
+      "date": "2024-12-08T11:08:23.474Z",
+      "seat": "25B",
+      "flightLength": 6.25
+    },
+    {
+      "passenger": "Helen Árnason",
+      "airline": "Condor",
+      "flightNumber": "15989",
+      "origin": {
+        "name": "Munich Airport",
+        "code": "MUC",
+        "city": "Munich",
+        "country": "Germany"
+      },
+      "destination": {
+        "name": "Khartoum International Airport",
+        "code": "KRT",
+        "city": "Khartoum",
+        "country": "Sudan"
+      },
+      "date": "2025-03-29T01:34:44.892Z",
+      "seat": "8D",
+      "flightLength": 7.75
+    }
+  ]
+}
