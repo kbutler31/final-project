@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Flight from './Flight';
 
 const FlightList = () => {
   const [flights, setFlights] = useState([]);
 
   useEffect(() => {
-    const fetchFlights = async () => {
-      const res = await axios.get('http://localhost:5000/flights');
-      setFlights(res.data);
-    };
     fetchFlights();
+    console.log("initial load")
   }, []);
-
+  
+  const fetchFlights = async () => {
+    const res = await axios.get('http://localhost:3005/flights');
+    setFlights(res.data)
+    console.log("all Flights: ", res)
+  };
+  console.log(flights)
   return (
     <div>
       <h2>Flight List</h2>
       <ul>
-        {flights.map(flight => (
-          <li key={flight.id}>
-            {flight.flightNumber} - {flight.departure} to {flight.destination}
+        {flights && flights.map((item) => (
+          <li key={item.id}>
+            <Flight flightInfo={item}/>
           </li>
         ))}
       </ul>

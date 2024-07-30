@@ -15,7 +15,7 @@ const AddFlight = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/flights', flight);
+    await axios.post('http://localhost:3005/flights', flight);
     setFlight({ flightNumber: '', destination: '', departure: '', departureTime: '' });
     // You might want to update the FlightList here or use state management
   };

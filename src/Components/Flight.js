@@ -1,16 +1,16 @@
-import React from 'react';
-import FlightList from './FlightList';
-import AddFlight from './AddFlight';
-export default function About() {
-	
-    
 
-    
-		return <h2>
-      Flight Information
 
-    </h2>;
+
+
+
+function Flight({flightInfo}){
+console.log("Flight component recieves: " , flightInfo)
+
+
+  return (
+
+<p>{flightInfo.flightNumber} - {flightInfo.origin.city} to {flightInfo.destination.city}</p>
+
+  )
 }
-Const flights
-
-
+export default Flight;

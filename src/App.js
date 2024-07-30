@@ -9,38 +9,16 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Container from 'react-bootstrap/Container';
 import Home from './Components/Home.js';
 import About from './Components/About.js';
-import FlightList from './components/FlightList';
-import AddFlight from './components/AddFlight';
+import FlightList from './Components/FlightList';
+import AddFlights from './Components/AddFlights';
 
-const [flights, setFlights] = useState([]);
 
-useEffect(() => {
-  const fetchFlights = async () => {
-    const res = await axios.get('http://localhost:5000/flights');
-    setFlights(res.data);
-  };
-  fetchFlights();
-}, []);
 
-<FlightList flights={flights} />
-
-const FlightList = ({ flights }) => (
-  <div>
-    <h2>Flight List</h2>
-    <ul>
-      {flights.map(flight => (
-        <li key={flight.id}>
-          {flight.flightNumber} - {flight.departure} to {flight.destination}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
  const App = () => {
       return (
       <div className="App">
         <h1>Flight CRUD App</h1>
-        <AddFlight />
+        <AddFlights />
         <FlightList />
       </div>
     );
