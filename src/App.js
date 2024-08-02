@@ -11,13 +11,16 @@ import Home from './Components/Home.js';
 import About from './Components/About.js';
 import FlightList from './Components/FlightList';
 import AddFlights from './Components/AddFlights';
+import Footer from './Components/footer/Footer.js';
+import Delete from './Components/Delete.js';
+import Update from './Components/Update.js';
 
-
-
- const App = () => {
-      return (
+const App = () => {
+  return (
       <div className="App">
         <h1>Flight CRUD App</h1>
+        <About />
+        <Home />
         <AddFlights />
         <FlightList />
       </div>
@@ -26,38 +29,38 @@ import AddFlights from './Components/AddFlights';
 
 
     <Container>
-    <Router>
+      <Router>
       
       <div>
-      <ButtonGroup>
-        <Button variant='outline-secondary'>
-        <Link to="/">Home</Link>
-        </Button>
-        <Button variant='outline-secondary'>
-        <Link to="/about">About</Link>
-        </Button>
-        <Button variant='outline-secondary'>
+          <ButtonGroup>
+            <Button variant='outline-secondary'>
+              <Link to="/">Home</Link>
+            </Button>
+            <Button variant='outline-secondary'>
+              <Link to="/about">About</Link>
+            </Button>
+            <Button variant='outline-secondary'>
         <Link to="/Flights">Flights</Link>
-        </Button>
-      </ButtonGroup>
+            </Button>
+          </ButtonGroup>
         
 
-        
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
+          
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
 
-          <Route path="/flights">
-            <post />
-          </Route>
+            <Route path="/flights">
+            <flights />
+            </Route>
 
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+            <Route exact path="/"> 
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </Container>
   
 export default App;

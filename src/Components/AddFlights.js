@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import Update from './Update';
 const AddFlight = () => {
   const [flight, setFlight] = useState({
     flightNumber: '',
@@ -15,7 +15,7 @@ const AddFlight = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:3005/flights', flight);
+    await axios.post('http://localhost:5000/flights', flight);
     setFlight({ flightNumber: '', destination: '', departure: '', departureTime: '' });
     // You might want to update the FlightList here or use state management
   };
@@ -57,4 +57,11 @@ const AddFlight = () => {
   );
 };
 
+function updateFlight() {
+  return (
+    <div>
+      <Update />
+    </div>
+  );
+}
 export default AddFlight;

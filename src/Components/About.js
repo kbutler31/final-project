@@ -1,35 +1,23 @@
 import React from 'react';
-
-export default function About() {
-	
-		return <h2>About</h2>;
 		
-		const AboutPage = () => {
+		const About = () => {
 		  return (
-			<div className="about-page">
+			<div>
 			  <h1>About Flight Plans</h1>
-			  
 			  <section>
-				<h2>What is a Flight Plan?</h2>
+				<h2>What Are Flight Plans?</h2>
 				<p>
-				  A flight plan is a detailed outline of a plane's intended journey. It includes crucial information such as departure and arrival points, estimated flight time, alternate airports in case of emergency, and details about the aircraft and crew.
+				  Flight plans are detailed documents that outline the specific flight route, altitude, and other critical information for a given flight. They are created by airlines and are used to ensure safe and efficient operations.
 				</p>
-			  </section>
-		
-			  <section>
-				<h2>How Flight Plans Work for Customers</h2>
 				<ol>
 				  <li>
-					<strong>Booking:</strong> When you book a flight, you're reserving a seat on a plane that follows a specific flight plan.
+					<strong>Route:</strong> Flight plans specify the exact route that a plane will take, including any necessary detours or changes in altitude.
 				  </li>
 				  <li>
-					<strong>Schedule:</strong> The flight plan determines your departure and arrival times, which are communicated to you during booking.
+					<strong>Altitude:</strong> Flight plans specify the altitude at which the plane will fly, which is crucial for maintaining safety and avoiding collisions with other aircraft or obstacles.
 				  </li>
 				  <li>
-					<strong>Route:</strong> While you may not see the exact route, the flight plan optimizes your journey for efficiency and safety.
-				  </li>
-				  <li>
-					<strong>Connections:</strong> For trips with multiple legs, flight plans are coordinated to allow reasonable connection times.
+					<strong>Weather:</strong> Flight plans include information about weather conditions along the flight route, allowing pilots to make informed decisions about whether to proceed or divert to an alternate airport.
 				  </li>
 				  <li>
 					<strong>Safety:</strong> Flight plans include contingencies for weather and other potential issues, prioritizing passenger safety.
@@ -64,10 +52,7 @@ export default function About() {
 				Understanding flight plans can help you better navigate your travel experience and appreciate the complex coordination that goes into every flight.
 			  </p>
 			</div>
-		  );
+		  )
 		};
 		
-		
-}
-
-
+		export default About;
